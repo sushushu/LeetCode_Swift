@@ -13,26 +13,6 @@ import Foundation
 //
 //你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。
 class Solution_1 {
-//    func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
-//        var res : Array<Int> = []
-//        for (index_i,value_i) in nums.enumerated() { // 顺序遍历
-//            for (index_j,value_j) in nums.enumerated().reversed() { // 逆向遍历
-//                if value_i + value_j == target { // 找到目标值
-//                    if index_i == index_j { // 容错处理 比如target是28, 但是只有1个元素是14就
-//                        continue
-//                    }
-//                    if index_i > index_j {
-//                        res = [index_j,index_i]
-//                    } else {
-//                        res = [index_i,index_j]
-//                    }
-//                }
-//            }
-//        }
-//        return res;
-//    }
-
-    
     func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
         var map:[Int:Int] = [:]
         for (index,value) in nums.enumerated() {
@@ -44,7 +24,6 @@ class Solution_1 {
         }
         return []
     }
-    
 }
 
 // https://leetcode-cn.com/problems/jewels-and-stones/
