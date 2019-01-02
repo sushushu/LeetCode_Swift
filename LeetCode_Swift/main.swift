@@ -9,4 +9,6 @@
 import Foundation
 
 
-print(Solution_929.init().numUniqueEmails(["test.email+alex@leetcode.com","test.e.mail+bob.cathy@leetcode.com","testemail+david@lee.tcode.com"]))
+//print(Solution_929.init().numUniqueEmails(["test.email+alex@leetcode.com","test.e.mail+bob.cathy@leetcode.com","testemail+david@lee.tcode.com"]))
+
+print(Solution_905.init().sortArrayByParity([3,1,2,4]))

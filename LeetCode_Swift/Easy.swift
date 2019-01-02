@@ -90,4 +90,33 @@ class Solution_929 {
     }
 }
 
+// https://leetcode-cn.com/problems/to-lower-case/
+// 大写转小写
+class Solution_709 {
+    func toLowerCase(_ str: String) -> String {
+        // return str.lowercased(with: nil)
+        // return str.lowercased()
+        return str.localizedLowercase
+    }
+}
 
+// https://leetcode-cn.com/problems/sort-array-by-parity/
+//给定一个非负整数数组 A，返回一个由 A 的所有偶数元素组成的数组，后面跟 A 的所有奇数元素。
+//
+//你可以返回满足此条件的任何数组作为答案。
+class Solution_905 {
+    func sortArrayByParity(_ A: [Int]) -> [Int] {
+        var evenNumber = Array<Int>()
+        var unevenNumber = Array<Int>()
+        for (_,value) in A.enumerated() {
+            if value%2 == 0 { // 偶数
+                evenNumber.append(value)
+            } else {
+                unevenNumber.append(value)
+            }
+        }
+        evenNumber.append(contentsOf: unevenNumber)
+        print(evenNumber)
+        return evenNumber
+    }
+}
