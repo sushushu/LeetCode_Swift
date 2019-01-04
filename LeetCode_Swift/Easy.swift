@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 // https://leetcode-cn.com/problems/two-sum/
 //给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。
 //
@@ -25,6 +26,7 @@ class Solution_1 {
         return []
     }
 }
+
 
 // https://leetcode-cn.com/problems/jewels-and-stones/
 //给定字符串J 代表石头中宝石的类型，和字符串 S代表你拥有的石头。 S 中每个字符代表了一种你拥有的石头的类型，你想知道你拥有的石头中有多少是宝石。
@@ -52,6 +54,7 @@ class Solution_771 {
         }
     }
 }
+
 
 // https://leetcode-cn.com/problems/unique-email-addresses/
 //每封电子邮件都由一个本地名称和一个域名组成，以 @ 符号分隔。
@@ -90,6 +93,7 @@ class Solution_929 {
     }
 }
 
+
 // https://leetcode-cn.com/problems/to-lower-case/
 // 大写转小写
 class Solution_709 {
@@ -99,6 +103,7 @@ class Solution_709 {
         return str.localizedLowercase
     }
 }
+
 
 // https://leetcode-cn.com/problems/sort-array-by-parity/
 //给定一个非负整数数组 A，返回一个由 A 的所有偶数元素组成的数组，后面跟 A 的所有奇数元素。
@@ -118,5 +123,52 @@ class Solution_905 {
         evenNumber.append(contentsOf: unevenNumber)
         print(evenNumber)
         return evenNumber
+    }
+}
+
+
+// https://leetcode-cn.com/problems/n-repeated-element-in-size-2n-array/
+//在大小为 2N 的数组 A 中有 N+1 个不同的元素，其中有一个元素重复了 N 次。
+//
+//返回重复了 N 次的那个元素。
+class Solution_961 {
+    func repeatedNTimes(_ A: [Int]) -> Int {
+        var tmp = Array<Int>()
+        for (_,value) in A.enumerated() { // 由题可知必定有一个数重复了2次
+            if tmp.contains(value) {
+                // print(value)
+                return value
+            } else {
+                tmp.append(value)
+            }
+        }
+        return 0
+    }
+}
+
+// https://leetcode-cn.com/problems/flipping-an-image/
+//给定一个二进制矩阵 A，我们想先水平翻转图像，然后反转图像并返回结果。
+//
+//水平翻转图片就是将图片的每一行都进行翻转，即逆序。例如，水平翻转 [1, 1, 0] 的结果是 [0, 1, 1]。
+//
+//反转图片的意思是图片中的 0 全部被 1 替换， 1 全部被 0 替换。例如，反转 [0, 1, 1] 的结果是 [1, 0, 0]。
+class Solution_832 {
+    func flipAndInvertImage(_ A: [[Int]]) -> [[Int]] {
+        var tmp1 = Array<[Int]>()
+        for i in A {
+            var tmp2 = Array<Int>()
+            for j in i.reversed() { // 水平翻转接
+                var tmp3 : Int
+                if j == 1 { // 反转
+                    tmp3 = 0
+                } else {
+                    tmp3 = 1
+                }
+                tmp2.append(tmp3)
+            }
+            tmp1.append(tmp2)
+        }
+//        print(tmp1)
+        return tmp1
     }
 }
