@@ -158,13 +158,13 @@ class Solution_832 {
         for i in A {
             var tmp2 = Array<Int>()
             for j in i.reversed() { // 水平翻转接
-                var tmp3 : Int
-                if j == 1 { // 反转
-                    tmp3 = 0
-                } else {
-                    tmp3 = 1
-                }
-                tmp2.append(tmp3)
+//                var tmp3 : Int
+//                if j == 1 {
+//                    tmp3 = 0
+//                } else {
+//                    tmp3 = 1
+//                }
+                tmp2.append(j^1) // 反转  j^1更优雅一点
             }
             tmp1.append(tmp2)
         }
