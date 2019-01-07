@@ -210,3 +210,56 @@ class Solution_804 {
 }
 
 
+// https://leetcode-cn.com/problems/robot-return-to-origin/ 657. 机器人能否返回原点
+//在二维平面上，有一个机器人从原点 (0, 0) 开始。给出它的移动顺序，判断这个机器人在完成移动后是否在 (0, 0) 处结束。
+//
+//移动顺序由字符串表示。字符 move[i] 表示其第 i 次移动。机器人的有效动作有 R（右），L（左），U（上）和 D（下）。如果机器人在完成所有动作后返回原点，则返回 true。否则，返回 false。
+//
+//注意：机器人“面朝”的方向无关紧要。 “R” 将始终使机器人向右移动一次，“L” 将始终向左移动等。此外，假设每次移动机器人的移动幅度相同。
+class Solution_657 {
+    func judgeCircle(_ moves: String) -> Bool {
+        var paths = ["L":-1,"R":1,"U":10,"D":-10]
+        var LRTmp = 0
+        var UDTmp = 0
+        
+        for element in moves {
+            if element == "L" || element == "R" {
+                LRTmp += paths[String(element)]!
+            } else {
+                UDTmp += paths[String(element)]!
+            }
+        }
+        return !Bool(truncating: NSNumber.init(value: LRTmp + UDTmp))
+    }
+}
+
+
+// https://leetcode-cn.com/problems/sort-array-by-parity-ii/  922. 按奇偶排序数组 II
+//给定一个非负整数数组 A， A 中一半整数是奇数，一半整数是偶数。
+//对数组进行排序，以便当 A[i] 为奇数时，i 也是奇数；当 A[i] 为偶数时， i 也是偶数。
+//你可以返回任何满足上述条件的数组作为答案。
+class Solution_922 {
+    func sortArrayByParityII(_ A: [Int]) -> [Int] {
+        var evenNumber = Array<Int>()
+        var unevenNumber = Array<Int>()
+        var res = Array<Int>()
+        // 先把奇偶抽取出来
+        for (_,value) in A.enumerated() {
+            if value%2 == 0 { // 偶数
+               evenNumber.append(value)
+            } else {
+               unevenNumber.append(value)
+            }
+        }
+        // 根据数组下标的奇偶重新排列
+        for (index,_) in A.enumerated() {
+            if index%2 == 0 { // 偶数
+                res.append(evenNumber[index/2])
+            } else { // 奇数
+                res.append(unevenNumber[(index-1)/2])
+            }
+        }
+//        print(res)
+        return res
+    }
+}

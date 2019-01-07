@@ -9,7 +9,7 @@
 import Foundation
 
 
-print(Solution_804.init().uniqueMorseRepresentations(["gin", "zen", "gig", "msg"]))
+print(Solution_922.init().sortArrayByParityII([4,2,5,7]))
 
 
 
