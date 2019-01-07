@@ -34,8 +34,8 @@ class Solution_1 {
 //J 中的字母不重复，J 和 S中的所有字符都是字母。字母区分大小写，因此"a"和"A"是不同类型的石头。
 class Solution_771 {
     func numJewelsInStones(_ J: String, _ S: String) -> Int {
-        let JArray = Array(J.characters) // 取出2个字符串的每一个字符存进数组
-        let SArray = Array(S.characters)
+        let JArray = Array(J) // 取出2个字符串的每一个字符存进数组
+        let SArray = Array(S)
         var res = 0
 
         if (J.count > 50) || (S.count > 50) {
@@ -45,7 +45,7 @@ class Solution_771 {
             for j in SArray { // 遍历2个数组的元素进行比较
                 for i in JArray {
                     if j == i {
-                        print("命中了 \(i) == \(j)")
+//                        print("命中了 \(i) == \(j)")
                         res += 1
                     }
                 }
@@ -172,3 +172,41 @@ class Solution_832 {
         return tmp1
     }
 }
+
+
+// https://leetcode-cn.com/problems/unique-morse-code-words/
+//国际摩尔斯密码定义一种标准编码方式，将每个字母对应于一个由一系列点和短线组成的字符串， 比如: "a" 对应 ".-", "b" 对应 "-...", "c" 对应 "-.-.", 等等。
+//为了方便，所有26个英文字母对应摩尔斯密码表如下：
+//[".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."]
+//给定一个单词列表，每个单词可以写成每个字母对应摩尔斯密码的组合。例如，"cab" 可以写成 "-.-..--..."，(即 "-.-." + "-..." + ".-"字符串的结合)。我们将这样一个连接过程称作单词翻译。
+class Solution_804 {
+    func uniqueMorseRepresentations(_ words: [String]) -> Int {
+        var alphabet = Dictionary<String,String> () // 字母表莫尔斯密码字典
+        let charAry = Array("abcdefghijklmnopqrstuvwxyz")
+        let morseAry = [".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."]
+        var res = Array<String>()
+        var resList = Array<String>()
+        
+        for (index,value) in charAry.enumerated() {
+            alphabet[String(value)] = morseAry[index] // String(value):char转string , 映射字母表莫尔斯密码成字典
+        }
+        
+        for (_,value) in words.enumerated() { // 遍历 ["gin", "zen", "gig", "msg"]
+            var tmp = ""
+            for (_,value1) in String(value).enumerated() { // 遍历 "gin"
+                tmp.append(alphabet[String(value1)]!)
+            }
+            res.append(tmp) // "gin" => "--...-."
+        }
+        
+        for (_,value) in res.enumerated() { // 去重
+            if !resList.contains(value) {
+                resList.append(value)
+            }
+        }
+        
+        return resList.count
+    }
+}
+
+
