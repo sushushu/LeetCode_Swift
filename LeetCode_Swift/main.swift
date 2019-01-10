@@ -9,7 +9,4 @@
 import Foundation
 
 
-print(Solution_922.init().sortArrayByParityII([4,2,5,7]))
-
-
-
+print(Solution_461.init().hammingDistance(4,2))

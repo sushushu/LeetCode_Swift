@@ -263,3 +263,17 @@ class Solution_922 {
         return res
     }
 }
+
+// https://leetcode-cn.com/problems/hamming-distance/
+//两个整数之间的汉明距离指的是这两个数字对应二进制位不同的位置的数目。
+//给出两个整数 x 和 y，计算它们之间的汉明距离。
+class Solution_461 {
+    func hammingDistance(_ x: Int, _ y: Int) -> Int {
+        print(String(x ^ y, radix: 2).replacingOccurrences(of: "0", with: "").count) // 异或操作 http://www.runoob.com/cplusplus/cpp-operators.html 
+        return 0
+    }
+}
+
+
+
+
