@@ -9,4 +9,4 @@
 import Foundation
 
 
-print(Solution_461.init().hammingDistance(4,2))
+print(Solution_852.init().peakIndexInMountainArray([0,200,1,0,10,60,59]))
