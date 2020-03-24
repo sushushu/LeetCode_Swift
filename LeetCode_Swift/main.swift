@@ -9,4 +9,7 @@
 import Foundation
 
 
-print(Solution_852.init().peakIndexInMountainArray([0,200,1,0,10,60,59]))
+//var node = Solution_237.init()
+//var t = Solution_237.SingleLinkedListNode.init(value:19)
+//
+//print(t)

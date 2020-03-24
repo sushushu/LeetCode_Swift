@@ -303,8 +303,138 @@ class Solution_852 {
     }
 }
 
+// https://leetcode-cn.com/problems/di-string-match/
+//给定只含 "I"（增大）或 "D"（减小）的字符串 S ，令 N = S.length。
+//
+//返回 [0, 1, ..., N] 的任意排列 A 使得对于所有 i = 0, ..., N-1，都有：
+//
+//如果 S[i] == "I"，那么 A[i] < A[i+1]
+//如果 S[i] == "D"，那么 A[i] > A[i+1]
+// 注意审题: N = S.length ；[0, 1, ..., N] 的任意排列 A 使得对于所有 i = 0, ..., N-1；传入的数组下标从0开始的，输出的数组
+// 没有彻底搞懂
+class Solution_942 {
+    func diStringMatch(_ S: String) -> [Int] {
+        var res =  Array<Int>()
+        var left = 0
+        var right = S.count
+        
+        for value in S {
+            if value == "I" {
+                res.append(left)
+                left += 1
+            } else {
+                res.append(right)
+                right -= 1
+            }
+        }
+        res.append(left)
+        
+        return res
+    }
+}
 
 
+// https://leetcode-cn.com/problems/delete-node-in-a-linked-list/
+//请编写一个函数，使其可以删除某个链表中给定的（非末尾）节点，你将只被给定要求被删除的节点。
+//
+//现有一个链表 -- head = [4,5,1,9]，它可以表示为:
+//示例 1:
+//
+//输入: head = [4,5,1,9], node = 5
+//输出: [4,1,9]
+//解释: 给定你链表中值为 5 的第二个节点，那么在调用了你的函数之后，该链表应变为 4 -> 1 -> 9.
+//说明:
+//
+//链表至少包含两个节点。
+//链表中所有节点的值都是唯一的。
+//给定的节点为非末尾节点并且一定是链表中的一个有效节点。
+//不要从你的函数中返回任何结果。
+class Solution_237 {
+    // 单链表结构
+    public class SingleLinkedListNode<T> {
+        var value: T
+        var next: SingleLinkedListNode?
+        
+        public init(value: T) {
+            self.value = value
+            self.next = nil
+        }
+    }
+    
+    func deleteNode(node:SingleLinkedListNode<Any>) -> SingleLinkedListNode<Any> {
+        node.value = node.next?.value // 先拿下一个节点的值，然后再把该节点的地址指向下一个节点，一定要注意顺序
+        node.next = node.next?.next
+        return node
+    }
+}
+
+// https://leetcode-cn.com/problems/reverse-linked-list/
+//反转一个单链表。
+//
+//示例:
+//
+//输入: 1->2->3->4->5->NULL
+//输出: 5->4->3->2->1->NULL
+//进阶:
+//你可以迭代或递归地反转链表。你能否用两种方法解决这道题？
+class Solution_206 {
+    // 单链表结构
+    public class ListNode<T> {
+        var value: T
+        var next: ListNode?
+        
+        public init(value: T) {
+            self.value = value
+            self.next = nil
+            
+        }
+    }
+    
+    func reverseList(_ head: ListNode<Any>?) -> ListNode<Any>? {
+        if (head == nil || head?.next == nil) {
+            return head
+        }
+        
+        var newH:ListNode<Any>? = nil
+        var head = head
+        
+        while head != nil {
+            let tmp = head?.next
+            head?.next = newH
+            newH = head
+            head = tmp
+        }
+        return newH
+    }
+}
 
 
-
+//// https://leetcode-cn.com/problems/zai-pai-xu-shu-zu-zhong-cha-zhao-shu-zi-lcof/
+//统计一个数字在排序数组中出现的次数。
+//
+//示例 1:
+//
+//输入: nums = [5,7,7,8,8,10], target = 8
+//输出: 2
+//示例 2:
+//
+//输入: nums = [5,7,7,8,8,10], target = 6
+//输出: 0
+//
+//
+//限制：
+//
+//0 <= 数组长度 <= 50000
+class Solution_Offer {
+    func search(_ nums: [Int], _ target: Int) -> Int {
+        var ret = 0
+        
+        for e in nums {
+            if target == e {
+                ret += 1
+            }
+        }
+        
+        return ret
+    }
+}
