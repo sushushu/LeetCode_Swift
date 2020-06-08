@@ -13,3 +13,12 @@ import Foundation
 //var t = Solution_237.SingleLinkedListNode.init(value:19)
 //
 //print(t)
+
+
+//var t = Solution_771.init().numJewelsInStones("aAdfaaasAAAjdjfhjkaaaa", "aAAbbbb")
+//
+//print(t)
+
+
+var t = Solution_709.init().toLowerCase("aazZaAABBbbccCCYIUiiiIOIkkkG")
+

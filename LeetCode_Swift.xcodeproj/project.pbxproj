@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2D23ACCB21D93FED00DC2BD1 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D23ACCA21D93FED00DC2BD1 /* main.swift */; };
 		2D407C7021D9FFA400027AE9 /* Easy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D407C6F21D9FFA400027AE9 /* Easy.swift */; };
+		B21E0932248B95D2002472ED /* solution.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B21E0930248B95D2002472ED /* solution.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,6 +28,9 @@
 		2D23ACC721D93FED00DC2BD1 /* LeetCode_Swift */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LeetCode_Swift; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D23ACCA21D93FED00DC2BD1 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		2D407C6F21D9FFA400027AE9 /* Easy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Easy.swift; sourceTree = "<group>"; };
+		B21E092B248B9596002472ED /* LeetCode_Swift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LeetCode_Swift-Bridging-Header.h"; sourceTree = "<group>"; };
+		B21E0930248B95D2002472ED /* solution.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = solution.cpp; sourceTree = "<group>"; };
+		B21E0931248B95D2002472ED /* solution.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = solution.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +65,9 @@
 			children = (
 				2D23ACCA21D93FED00DC2BD1 /* main.swift */,
 				2D407C6F21D9FFA400027AE9 /* Easy.swift */,
+				B21E092B248B9596002472ED /* LeetCode_Swift-Bridging-Header.h */,
+				B21E0930248B95D2002472ED /* solution.cpp */,
+				B21E0931248B95D2002472ED /* solution.hpp */,
 			);
 			path = LeetCode_Swift;
 			sourceTree = "<group>";
@@ -97,6 +104,7 @@
 				TargetAttributes = {
 					2D23ACC621D93FED00DC2BD1 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1130;
 					};
 				};
 			};
@@ -124,6 +132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D23ACCB21D93FED00DC2BD1 /* main.swift in Sources */,
+				B21E0932248B95D2002472ED /* solution.cpp in Sources */,
 				2D407C7021D9FFA400027AE9 /* Easy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -247,13 +256,21 @@
 		2D23ACCF21D93FED00DC2BD1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5U7HDV5P9B;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = leetcode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "LeetCode_Swift/LeetCode_Swift-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -261,13 +278,20 @@
 		2D23ACD021D93FED00DC2BD1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5U7HDV5P9B;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = leetcode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "LeetCode_Swift/LeetCode_Swift-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;

@@ -9,6 +9,8 @@
 import Foundation
 
 
+// MARK: - 找出和为目标值的那 两个 整数，并返回他们的数组下标。
+
 // https://leetcode-cn.com/problems/two-sum/
 //给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。
 //
@@ -28,33 +30,44 @@ class Solution_1 {
 }
 
 
+// MARK: - J和S宝石问题
+
 // https://leetcode-cn.com/problems/jewels-and-stones/
 //给定字符串J 代表石头中宝石的类型，和字符串 S代表你拥有的石头。 S 中每个字符代表了一种你拥有的石头的类型，你想知道你拥有的石头中有多少是宝石。
 //
 //J 中的字母不重复，J 和 S中的所有字符都是字母。字母区分大小写，因此"a"和"A"是不同类型的石头。
 class Solution_771 {
     func numJewelsInStones(_ J: String, _ S: String) -> Int {
-        let JArray = Array(J) // 取出2个字符串的每一个字符存进数组
-        let SArray = Array(S)
-        var res = 0
-
-        if (J.count > 50) || (S.count > 50) {
-            print("不能超过50个字符~")
+        if (J.count > 50) || (S.count > 50 || J.count == 0 || S.count == 0) {
+            print("异常")
             return 0
-        } else {
-            for j in SArray { // 遍历2个数组的元素进行比较
-                for i in JArray {
-                    if j == i {
-//                        print("命中了 \(i) == \(j)")
-                        res += 1
-                    }
-                }
-            }
-            return res;
         }
+        
+        let m_sArray = Array(S)
+        var m_set = Set<Character>() // Set合集是高阶函数，具有确保里面的值唯一的特性
+        
+        for j in m_sArray { // 遍历2个数组的元素进行比较
+            if !m_set.contains(j) {
+                m_set.insert(j)
+            }
+        }
+        return m_set.count;
     }
+    
+    // 直接利用filter()函数
+//    func numJewelsInStones(_ J: String, _ S: String) -> Int {
+////        return S.filter { J.contains($0) }.count
+//
+//             let nums = S.filter {
+//                    J.contains($0)
+//                }
+//                return nums.count
+//
+//    }
 }
 
+
+// MARK: - 电子邮件字符替换
 
 // https://leetcode-cn.com/problems/unique-email-addresses/
 //每封电子邮件都由一个本地名称和一个域名组成，以 @ 符号分隔。
@@ -94,16 +107,62 @@ class Solution_929 {
 }
 
 
+// MARK: - 大写转小写
+
 // https://leetcode-cn.com/problems/to-lower-case/
 // 大写转小写
 class Solution_709 {
+    // 高阶函数解决办法
+//        func toLowerCase11(_ str: String) -> String {
+//    //        // return str.lowercased(with: nil)
+//             return str.lowercased()
+//            
+//        }
+    
+    // 字典解决办法写法，和官方的localizedLowercase()函数差不多内存和时间消耗
     func toLowerCase(_ str: String) -> String {
-        // return str.lowercased(with: nil)
-        // return str.lowercased()
-        return str.localizedLowercase
+        let dict = ["A":"a",
+                    "B":"b",
+                    "C":"c",
+                    "D":"d",
+                    "E":"e",
+                    "F":"f",
+                    "G":"g",
+                    "H":"h",
+                    "I":"i",
+                    "J":"j",
+                    "K":"k",
+                    "L":"l",
+                    "M":"m",
+                    "N":"n",
+                    "O":"o",
+                    "P":"p",
+                    "Q":"q",
+                    "R":"r",
+                    "S":"s",
+                    "T":"t",
+                    "U":"u",
+                    "V":"v",
+                    "W":"w",
+                    "X":"x",
+                    "Y":"y",
+                    "Z":"z",
+                    ] // 因为字母是有限且是规定好的，可以直接用字典定义出来
+        
+        var ret = ""
+        for s in str { // 遍历入参字符串
+            if dict.keys.contains(String(s)) { // 判断是否包含在字典key里面
+                ret.append(String(dict[String(s)] ?? "")) // 如果包含在字典的key里面，直接利用K-V取出值(dict["key"])， 也就是利用大写字母取出小写字母
+            } else {
+                ret.append(String(s))
+            }
+        }
+        return ret
     }
 }
 
+
+// MARK: -
 
 // https://leetcode-cn.com/problems/sort-array-by-parity/
 //给定一个非负整数数组 A，返回一个由 A 的所有偶数元素组成的数组，后面跟 A 的所有奇数元素。
@@ -438,13 +497,13 @@ class Solution_206 {
 //
 //你能用 O(1)（即，常量）内存解决此问题吗？
 
-class Solution_141 {
-    func hasCycle(_ head: ListNode?) -> Bool {
-        
-        
-        return false
-    }
-}
+//class Solution_141 {
+//    func hasCycle(_ head: ListNode?) -> Bool {
+//
+//
+//        return false
+//    }
+//}
 
 
 //// https://leetcode-cn.com/problems/zai-pai-xu-shu-zu-zhong-cha-zhao-shu-zi-lcof/
