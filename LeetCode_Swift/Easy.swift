@@ -535,3 +535,54 @@ class Solution_Offer {
         return ret
     }
 }
+
+
+
+// MARK: - 面试题06. 从尾到头打印链表
+// https://leetcode-cn.com/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/
+//输入一个链表的头节点，从尾到头反过来返回每个节点的值（用数组返回）。
+//
+//示例 1：
+//
+//输入：head = [1,3,2]
+//输出：[2,3,1]
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public var val: Int
+ *     public var next: ListNode?
+ *     public init(_ val: Int) {
+ *         self.val = val
+ *         self.next = nil
+ *     }
+ * }
+ */
+class Solution_interview_06 {
+    public class ListNode {
+        public var val: Int
+        public var next: ListNode?
+        public init(_ val: Int) {
+            self.val = val
+            self.next = nil
+        }
+    }
+    
+    func reversePrint(_ head: ListNode?) -> [Int] {
+        if head == nil {
+            return []
+        }
+        if head!.next == nil {
+            return [head!.val]
+        }
+        var t = head
+        var ret = [Int]()
+        ret.insert(t!.val, at: 0) // 上来得先插入一个，因为下面是拿next判断的
+        
+        while t!.next != nil {
+            t = t!.next
+            ret.insert(t!.val, at: 0) // 一直插入数组最前面就能保证链表从尾到头按在数组上面
+        }
+        return ret
+    }
+}
+
