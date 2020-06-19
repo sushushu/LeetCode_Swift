@@ -10,6 +10,7 @@
 		2D23ACCB21D93FED00DC2BD1 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D23ACCA21D93FED00DC2BD1 /* main.swift */; };
 		2D407C7021D9FFA400027AE9 /* Easy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D407C6F21D9FFA400027AE9 /* Easy.swift */; };
 		B21E0932248B95D2002472ED /* solution.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B21E0930248B95D2002472ED /* solution.cpp */; };
+		B2278CBA249C53C800EEC7BC /* GetTheOffers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2278CB9249C53C800EEC7BC /* GetTheOffers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +32,7 @@
 		B21E092B248B9596002472ED /* LeetCode_Swift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LeetCode_Swift-Bridging-Header.h"; sourceTree = "<group>"; };
 		B21E0930248B95D2002472ED /* solution.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = solution.cpp; sourceTree = "<group>"; };
 		B21E0931248B95D2002472ED /* solution.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = solution.hpp; sourceTree = "<group>"; };
+		B2278CB9249C53C800EEC7BC /* GetTheOffers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTheOffers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 			children = (
 				2D23ACCA21D93FED00DC2BD1 /* main.swift */,
 				2D407C6F21D9FFA400027AE9 /* Easy.swift */,
+				B2278CB9249C53C800EEC7BC /* GetTheOffers.swift */,
 				B21E092B248B9596002472ED /* LeetCode_Swift-Bridging-Header.h */,
 				B21E0930248B95D2002472ED /* solution.cpp */,
 				B21E0931248B95D2002472ED /* solution.hpp */,
@@ -134,6 +137,7 @@
 				2D23ACCB21D93FED00DC2BD1 /* main.swift in Sources */,
 				B21E0932248B95D2002472ED /* solution.cpp in Sources */,
 				2D407C7021D9FFA400027AE9 /* Easy.swift in Sources */,
+				B2278CBA249C53C800EEC7BC /* GetTheOffers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

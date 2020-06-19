@@ -546,17 +546,6 @@ class Solution_Offer {
 //
 //输入：head = [1,3,2]
 //输出：[2,3,1]
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     public var val: Int
- *     public var next: ListNode?
- *     public init(_ val: Int) {
- *         self.val = val
- *         self.next = nil
- *     }
- * }
- */
 class Solution_interview_06 {
     public class ListNode {
         public var val: Int
@@ -586,3 +575,99 @@ class Solution_interview_06 {
     }
 }
 
+
+// MARK: - 反转链表
+// https://leetcode-cn.com/problems/fan-zhuan-lian-biao-lcof/
+//定义一个函数，输入一个链表的头节点，反转该链表并输出反转后链表的头节点。
+//
+//示例:
+//
+//输入: 1->2->3->4->5->NULL
+//输出: 5->4->3->2->1->NULL
+//
+//限制：
+//
+//0 <= 节点个数 <= 5000
+
+class Solution_interview_24 {
+    public class ListNode {
+        public var val: Int
+        public var next: ListNode?
+        public init(_ val: Int) {
+            self.val = val
+            self.next = nil
+        }
+    }
+    
+    // 递归法
+//    func reverseList(_ head: ListNode?) -> ListNode? {
+//        if head == nil || head?.next == nil {  // 终止条件，只剩下一个结点
+//            return head
+//        }
+//
+//        let tmp = reverseList(head?.next) // 注意该入参是head.next，所以当前第一个节点不动。为：n1->n2->...->nm  =>  n1->(nil<-n2<-...<-nm) ， n1不动
+//        head?.next?.next = head // 这时候head就是n1，把n1给
+//        head?.next = nil
+//        return tmp
+//    }
+    
+    
+    // 第三变量，移动指针
+    func reverseList(_ head: ListNode?) -> ListNode? {
+         if head == nil || head?.next == nil {
+             return head
+         }
+
+        var newHead:ListNode? = nil
+        var head = head
+
+        while head != nil {
+            let tmp = head?.next
+            head?.next = newHead;
+            newHead = head;
+            head = tmp
+        }
+//        print(newHead)
+        return newHead
+    }
+}
+
+
+
+// MARK: - 合并两个有序的链表
+//输入两个递增排序的链表，合并这两个链表并使新链表中的节点仍然是递增排序的。
+//
+//示例1：
+//
+//输入：1->2->4, 1->3->4
+//输出：1->1->2->3->4->4
+//限制：
+//
+//0 <= 链表长度 <= 1000
+class Solution_interview_25 {
+    public class ListNode {
+        public var val: Int
+        public var next: ListNode?
+        public init(_ val: Int) {
+            self.val = val
+            self.next = nil
+        }
+    }
+    func mergeTwoLists(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
+        var l1 = l1, l2 = l2
+        var root: ListNode? = ListNode(0)
+        let result = root
+        while l1 != nil && l2 != nil {
+            if l1!.val <= l2!.val {
+                root?.next = l1
+                l1 = l1?.next // 移动指针
+            } else {
+                root?.next = l2
+                l2 = l2?.next // 移动指针
+            }
+            root = root?.next // 移动指针
+        }
+        root?.next = l1 != nil ? l1 : l2 // 防止链表不平均造成剩余，这里判断一下
+        return result?.next
+    }
+}
