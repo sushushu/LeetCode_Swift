@@ -52,3 +52,23 @@ class Solution_58 {
     }
 }
 
+/// 二分查找
+class Solution_binarySearch {
+    func search(array: Array<Int>, item: Int) -> Int {
+        guard array.count != 0 else {
+            return -1
+        }
+        
+        // 2个变量记录low和high
+        // 开始循环查找，渐渐缩小范围
+        // 用标量记录找到的中间值
+        var low = 0
+        var high = array.count - 1
+        
+        while (low <= high) {
+            var mid = (low + high) / 2
+            print("\(array[mid])")
+        }
+        return -1
+    }
+}

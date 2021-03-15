@@ -8,8 +8,10 @@
 
 import Foundation
 
-var t = Solution_58.init().reverseLeftWords("aaabbbccc", 10)
-print(t)
+
+_ = Solution_binarySearch.init().search(array: [0,1,2,3,4,5,6,7,8,9,121,232,343,565,687,989], item: 2)
+//var t = Solution_58.init().reverseLeftWords("aaabbbccc", 10)
+//print(t)
 
 //var node = Solution_237.init()
 //var t = Solution_237.SingleLinkedListNode.init(value:19)
