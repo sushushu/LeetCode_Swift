@@ -64,11 +64,31 @@ class Solution_binarySearch {
         // 用标量记录找到的中间值
         var low = 0
         var high = array.count - 1
+        var compareTimes = 0
+        
+        print("\n searching.... total count:\(array.count) low：\(low) high:\(high)")
         
         while (low <= high) {
-            var mid = (low + high) / 2
-            print("\(array[mid])")
+            compareTimes += 1
+            let mid = (low + high) / 2
+            let target = array[mid]
+            
+            if target == item { // 找到了
+                print("\n\n found the target: \(target) high：\(high) mid:\(mid) compareTimes:\(compareTimes) ")
+                return target
+            }
+            
+            if target < item { // target小了，【low -- mid -- high】, low下标应该从mid往右边+1 开始继续找【(mid +1)  -- high】
+                low = mid + 1
+            } else { // target大了，【low -- mid -- high】, high下标应该从mid往左边-1 开始继续找【high -- (mid - 1)】
+                high = mid - 1
+            }
+            
+            if #available(OSX 10.15, *) {
+                print("\n low:\(low)  high:\(high) mid:\(mid) guess:\(target) compareTimes:\(compareTimes) ")
+            }
         }
+        print("\n search not found, compareTimes:\(compareTimes)")
         return -1
     }
 }

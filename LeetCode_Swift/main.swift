@@ -9,7 +9,8 @@
 import Foundation
 
 
-_ = Solution_binarySearch.init().search(array: [0,1,2,3,4,5,6,7,8,9,121,232,343,565,687,989], item: 2)
+let ret = Solution_binarySearch.init().search(array: [0,1,2,3,4,5,6,7,8,9,10,99,121,232,343,565,687,989,2121,424343,2439399,3498309483], item: 11)
+
 //var t = Solution_58.init().reverseLeftWords("aaabbbccc", 10)
 //print(t)
 
