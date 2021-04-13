@@ -69,8 +69,8 @@
 				2D407C6F21D9FFA400027AE9 /* Easy.swift */,
 				B2278CB9249C53C800EEC7BC /* GetTheOffers.swift */,
 				B21E092B248B9596002472ED /* LeetCode_Swift-Bridging-Header.h */,
-				B21E0930248B95D2002472ED /* solution.cpp */,
 				B21E0931248B95D2002472ED /* solution.hpp */,
+				B21E0930248B95D2002472ED /* solution.cpp */,
 			);
 			path = LeetCode_Swift;
 			sourceTree = "<group>";
